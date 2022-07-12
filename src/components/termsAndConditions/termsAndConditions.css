@@ -1,3 +1,11 @@
-.termsText{
+.titileHeader {
   font-family: URW Chancery L, cursive;
+  font-size: 20rem;
+  display: inline-flexbox;
+}
+
+.termsText {
+  font-family: URW Chancery L, cursive;
+  display: inline-flexbox;
+  font-size: 13rem;
 }
