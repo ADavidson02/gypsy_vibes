@@ -1,0 +1,27 @@
+
+.titleHeader {
+  font-family: Comic Sans MS;
+  font-size: 41px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+}
+
+.termsList {
+  padding-right: 40px;
+}
+
+.termsText {
+  font-family: URW Chancery L, cursive;
+  display: flexbox;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  overflow-wrap: normal;
+  overflow-wrap: anywhere;
+  align-items: flex-start;
+  list-style-type: square;
+  padding: 19px;
+}

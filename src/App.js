@@ -1,18 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
-import { Route, Switch } from 'react-router-dom';
-import TermsAndConditions from './components/termsAndConditions/termsAndConditions';
+import { Route, Routes } from 'react-router-dom';
+import TermsAndConditions from './components/termsAndConditionsPage.js';
 
 const App = () => {
   return (
     <main className='App'>
-      <Switch>
+      <Routes>
         <Route
           exact
           path='/termsandconditions'
           component={TermsAndConditions}
         />
-      </Switch>
+      </Routes>
     </main>
   );
 };
