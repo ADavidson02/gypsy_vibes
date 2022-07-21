@@ -1,0 +1,26 @@
+.titleHeader {
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  font-size: 41px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  padding-top: 20px;
+  margin: 48px 0 20px 0px;
+  font-weight: 550;
+}
+
+.experienceText {
+  font-family: 'Arial, Helvetica, sans-serif';
+  display: flexbox;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  overflow-wrap: normal;
+  overflow-wrap: anywhere;
+  align-items: flex-start;
+  list-style-type: square;
+  padding-left: 35px;
+  padding-right: 35px;
+}

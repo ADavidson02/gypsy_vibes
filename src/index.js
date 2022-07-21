@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import TermsAndConditions from './components/termsAndConditionsPage.js';
+import Experience from './components/experiencePage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,6 +13,7 @@ root.render(
     <Routes>
       <Route path='/' element={<App />} />
       <Route path='termsandconditions' element={<TermsAndConditions />} />
+      <Route path='/experience' element={<Experience />} />
     </Routes>
   </BrowserRouter>
 );

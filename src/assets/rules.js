@@ -1,5 +1,5 @@
 
-export const rules = [
+const rules = [
   {
     id: 1,
     rule: 'Prices are for Denver Colorado, metro area only. Longmont to Lone Tree, Aurora to Arvada.'
