@@ -11,7 +11,7 @@ class TermsAndConditions extends Component {
         </div>
         <ul class='termsList'>
           {rules.map(rule => (
-            <li key={rule.id} class='termsText'>
+            <li key={rule.id} className='termsText'>
               {rule.rule}
             </li>
           ))}
