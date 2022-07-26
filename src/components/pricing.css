@@ -9,19 +9,42 @@
   padding-top: 20px;
   margin: 48px 0 20px 0px;
   font-weight: 550;
+  outline: solid 1px black;
+  background: pink;
 }
 
 .subTitle {
   font-family: Comic Sans MS, Comic Sans, cursive;
   font-size: 20px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  align-content: flex-start;
-  justify-content: center;
+
   padding-top: 20px;
 }
 
+.containerLeft {
+  height: 100vh;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  font-size: 20px;
+  background-color: aquamarine;
+  width: 60% !important;
+  flex-grow: 1;
+  background-color: chartreuse;
+}
+
 .containerRight {
-  
+  height: 100vh;
+  font-family: Comic Sans MS, Comic Sans, cursive;
+  font-size: 20px;
+  padding-top: 10px;
+  background-color: aquamarine;
+}
+
+.mainContainer {
+  background-color: blueviolet;
+  height: 100vh;
+}
+
+.lowerWrapper {
+  display: flex;
+  flex-direction: 'row';
+  flex-wrap: nowrap !important;
 }
