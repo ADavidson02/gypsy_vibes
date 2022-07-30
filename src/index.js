@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import TermsAndConditions from './components/termsAndConditionsPage.js';
 import Experience from './components/experiencePage';
 import PricingPage from './components/pricing';
+import Directions from './components/directions';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,6 +17,7 @@ root.render(
       <Route path='termsandconditions' element={<TermsAndConditions />} />
       <Route path='/experience' element={<Experience />} />
       <Route path='/pricing' element={<PricingPage />} />
+      <Route path='/directions' element={<Directions />} />
     </Routes>
   </BrowserRouter>
 );
