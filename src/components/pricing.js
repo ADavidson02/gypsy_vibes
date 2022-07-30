@@ -1,60 +1,99 @@
 import React, { Component } from 'react';
 import pricingInfo from '../assets/pricingInfo';
 import './pricing.css';
-import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import Box from '@mui/material/Box';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Box from '@material-ui/core/Box';
 
-class PricingPage extends Component {
-  render() {
-    return (
-      <Grid container direction='column' gap={2} className='mainContainer'>
+const useStyles = makeStyles({
+  root: {
+    flexGrow: 1,
+    margin: 'auto',
+    background: 'purple',
+  },
+  paper: {
+    height: 2000,
+    width: 100,
+  },
+  control: {},
+  containerLeft: {
+    margin: 'auto',
+    backgroundColor: 'blue',
+    flexGrow: 1,
+  },
+  containerRight: {
+    backgroundColor: 'pink',
+    flexGrow: 1,
+  },
+});
+
+const PricingPage = () => {
+  const classes = useStyles;
+
+  return (
+    <Box className={classes.root} style={{ backgroundColor: 'purple' }}>
+      <Grid
+        container
+        direction='row'
+        justifyContent='space-evenly'
+        className={classes.root}
+        style={{ background: 'pink' }}
+      >
         <Grid
           item
           container
           direction='column'
-          className='containerLeft'
-          gap={2}
+          justifyContent='center'
+          alignItems='stretch'
+          xs={8}
+          className={classes.containerLeft}
+          style={{ background: 'blue' }}
         >
           <Grid
             item
-            direction='row'
-            className='titleHeader'
-            sm={2}
-            md={2}
-            lg={2}
-            xl={2}
-            flexGrow={1}
-            gap={2}
+            container
+            xs={9}
+            direction='column'
+            justifyContent='center'
+            alignItems='stretch'
+            style={{ background: 'red' }}
           >
-            Pricing.....
+            <div className={classes.paper}>Pricing.....</div>
           </Grid>
-          <Grid item>Image</Grid>
+          <Grid
+            item
+            container
+            xs={8}
+            justifyContent='center'
+            alignItems='stretch'
+            style={{ background: 'yellow' }}
+          >
+            <div className={classes.paper}>Image</div>
+          </Grid>
         </Grid>
-
         <Grid
           container
-          item
-          sm={4}
-          xl={4}
-          lg={4}
-          md={4}
-          className='containerRight'
           direction='column'
+          justifyContent='flex-start'
+          alignItems='flex-start'
+          xs={4}
+          className={classes.containerRight}
         >
-          <div className='subTitle'>Private Event Only </div>
+          <div>Private Event Only </div>
           <div>(Includes personalized digital invite)</div>
           <Grid item>
             {pricingInfo.map((info) => (
-              <ul key={info.id}>
-                <li>title{info.title}</li>
+              <ul key={info.id} className='miniSection'>
+                <li className='sectionTitle'>{info.title}</li>
                 {info.info.map((i) => (
-                  <ul>
-                    <li>subTitle: {i.subTitle} </li>
+                  <ul className='sectionInfo'>
+                    <li>{i.subTitle} </li>
                     {i.details.map((deets) => (
                       <li>{deets}</li>
                     ))}
-                    <li>Price: {i.price}</li>
+                    <li>-${i.price} per person</li>
                   </ul>
                 ))}
               </ul>
@@ -62,8 +101,8 @@ class PricingPage extends Component {
           </Grid>
         </Grid>
       </Grid>
-    );
-  }
-}
+    </Box>
+  );
+};
 
 export default PricingPage;
