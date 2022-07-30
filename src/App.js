@@ -1,7 +1,7 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import TermsAndConditions from './components/termsAndConditionsPage.js';
-import Experience from './components/experiencePage';
+import ExperiencePage from './components/experiencePage';
 
 const App = () => {
   return (
@@ -12,11 +12,7 @@ const App = () => {
           path='/termsandconditions'
           component={TermsAndConditions}
         />
-        <Route
-        exact
-        path='/experience'
-        component={Experience}
-        />
+        <Route exact path='/experience' component={ExperiencePage} />
       </Routes>
     </main>
   );
