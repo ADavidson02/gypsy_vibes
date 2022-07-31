@@ -15,6 +15,9 @@ const useStyles = makeStyles({
   paper: {
     height: '100%',
   },
+  title: {
+    fontSize: '25px',
+  },
   control: {},
   containerLeft: {
     margin: 'auto',
@@ -31,10 +34,7 @@ const Directions = () => {
   const classes = useStyles;
   console.log(howItWorks.Title);
   return (
-    <Container
-      className={classes.root}
-      style={{ background: 'orange', flexWrap: 'nowrap' }}
-    >
+    <Grid container style={{ backgroundColor: 'lightgray', padding: '20px' }}>
       <Grid
         direction='row'
         justifyContent='space-evenly'
@@ -53,27 +53,41 @@ const Directions = () => {
               style={{ background: 'blue', height: '80vh' }}
               xs={6}
             >
-              <Paper item>.....{direction.title}....</Paper>
-            </Grid>
-            <Grid
-              item
-              direction='column'
-              justifyContent='space-evenly'
-              className={classes.root}
-              style={{ background: 'purple' }}
-              xs={6}
-            >
-              <Paper style={{ height: '100vh', listStyle:'none'  }}>
+              <Grid
+                item
+                style={{
+                  fontSize: '25px',
+                  fontFamily: 'Fantasy',
+                  paddingTop: '8vh',
+                  paddingBottom: '2vh',
+                }}
+              >
+                .....{direction.title}....
+              </Grid>
+              <Grid item style={{ height: '100vh', listStyle: 'none' }}>
                 {direction.intro}
-                {direction.steps.map((step) => (
-                  <li key={step.id}>{step.step}</li>
-                ))}
-              </Paper>
+                <Grid item style={{ height: '100vh', listStyle: 'none' }}>
+                  {' '}
+                  {direction.steps.map((step) => (
+                    <li key={step.id}>{step.step}</li>
+                  ))}
+                </Grid>
+              </Grid>
             </Grid>
           </React.Fragment>
         ))}
+        <Grid
+          item
+          direction='column'
+          justifyContent='space-evenly'
+          className={classes.root}
+          style={{ background: 'purple' }}
+          xs={6}
+        >
+          <div>Image</div>
+        </Grid>
       </Grid>
-    </Container>
+    </Grid>
   );
 };
 
