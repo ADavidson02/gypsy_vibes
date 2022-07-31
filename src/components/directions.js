@@ -3,16 +3,17 @@ import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import { Container } from '@material-ui/core';
 import howItWorks from '../assets/about.js';
+import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
     margin: 'auto',
-    background: 'purple',
+    wrap: 'Nowrap',
+    height: '100vh',
   },
   paper: {
-    height: 2000,
-    width: 100,
+    height: '100%',
   },
   control: {},
   containerLeft: {
@@ -30,25 +31,47 @@ const Directions = () => {
   const classes = useStyles;
   console.log(howItWorks.Title);
   return (
-    <Container>
+    <Container
+      className={classes.root}
+      style={{ background: 'orange', flexWrap: 'nowrap' }}
+    >
       <Grid
-        container
         direction='row'
         justifyContent='space-evenly'
+        wrap='nowrap'
         className={classes.root}
-        style={{ background: 'pink' }}
+        style={{ background: 'blue', height: '100vh', display: 'flex' }}
+        xs={12}
       >
-        <ul class='termsList'>
-          {howItWorks.map((direction) => (
-            <React.Fragment>
-              <Grid item>.....{direction.title}....</Grid>
-              <Grid item>{direction.intro}</Grid>
-              {direction.steps.map((step) => (
-                <li key={step.id}>{step.step}</li>
-              ))}
-            </React.Fragment>
-          ))}
-        </ul>
+        {howItWorks.map((direction) => (
+          <React.Fragment>
+            <Grid
+              item
+              direction='column'
+              justifyContent='space-evenly'
+              className={classes.root}
+              style={{ background: 'blue', height: '80vh' }}
+              xs={6}
+            >
+              <Paper item>.....{direction.title}....</Paper>
+            </Grid>
+            <Grid
+              item
+              direction='column'
+              justifyContent='space-evenly'
+              className={classes.root}
+              style={{ background: 'purple' }}
+              xs={6}
+            >
+              <Paper style={{ height: '100vh', listStyle:'none'  }}>
+                {direction.intro}
+                {direction.steps.map((step) => (
+                  <li key={step.id}>{step.step}</li>
+                ))}
+              </Paper>
+            </Grid>
+          </React.Fragment>
+        ))}
       </Grid>
     </Container>
   );
