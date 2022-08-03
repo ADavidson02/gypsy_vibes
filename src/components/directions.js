@@ -4,6 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Container } from '@material-ui/core';
 import howItWorks from '../assets/about.js';
 import Paper from '@material-ui/core/Paper';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
 
 const useStyles = makeStyles({
   root: {
@@ -50,26 +52,52 @@ const Directions = () => {
               direction='column'
               justifyContent='space-evenly'
               className={classes.root}
-              style={{ background: 'blue', height: '80vh' }}
-              xs={6}
+              style={{ background: 'lightblue', height: '100vh' }}
+              xs={8}
             >
               <Grid
                 item
                 style={{
                   fontSize: '25px',
                   fontFamily: 'Fantasy',
-                  paddingTop: '8vh',
+                  paddingTop: '6vh',
                   paddingBottom: '2vh',
+                  font: 'Comic Sans MS',
+                  fontSize: '41px',
                 }}
               >
                 .....{direction.title}....
               </Grid>
-              <Grid item style={{ height: '100vh', listStyle: 'none' }}>
+              <Grid
+                item
+                style={{
+                  height: '100vh',
+                  listStyle: 'none',
+                }}
+              >
                 {direction.intro}
-                <Grid item style={{ height: '100vh', listStyle: 'none' }}>
-                  {' '}
+                <Grid
+                  container
+                  item
+                  justifyContent='space-evenly'
+                  style={{ listStyle: 'none' }}
+                  xs={12}
+                >
                   {direction.steps.map((step) => (
-                    <li key={step.id}>{step.step}</li>
+                    <Card
+                      elevation={4}
+                      style={{
+                        minHeight: '20px',
+                        maxWidth: '20vh',
+                        padding: '40px 10px',
+                        margin: '10px 30px',
+                        wrap: 'wrap',
+                      }}
+                      key={step.id}
+                      xs={4}
+                    >
+                      <CardContent>{step.step}</CardContent>
+                    </Card>
                   ))}
                 </Grid>
               </Grid>
