@@ -4,8 +4,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Container } from '@material-ui/core';
 import howItWorks from '../assets/about.js';
 import Paper from '@material-ui/core/Paper';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
 
 const useStyles = makeStyles({
   root: {
@@ -36,13 +34,13 @@ const Directions = () => {
   const classes = useStyles;
   console.log(howItWorks.Title);
   return (
-    <Grid container style={{ backgroundColor: 'lightgray', padding: '20px' }}>
+    <Grid container style={{ padding: '20px' }}>
       <Grid
         direction='row'
         justifyContent='space-evenly'
         wrap='nowrap'
         className={classes.root}
-        style={{ background: 'blue', height: '100vh', display: 'flex' }}
+        style={{ height: '100vh', display: 'flex' }}
         xs={12}
       >
         {howItWorks.map((direction) => (
@@ -52,18 +50,18 @@ const Directions = () => {
               direction='column'
               justifyContent='space-evenly'
               className={classes.root}
-              style={{ background: 'lightblue', height: '100vh' }}
-              xs={8}
+              style={{ height: '100vh' }}
+              xs={6}
             >
               <Grid
                 item
                 style={{
-                  fontSize: '25px',
+                  fontSize: '48px',
                   fontFamily: 'Fantasy',
-                  paddingTop: '6vh',
-                  paddingBottom: '2vh',
-                  font: 'Comic Sans MS',
-                  fontSize: '41px',
+                  paddingTop: '9vh',
+                  marginLeft: '40px',
+                  marginBottom: '-26px',
+                  fontWeight: 'bold',
                 }}
               >
                 .....{direction.title}....
@@ -73,46 +71,42 @@ const Directions = () => {
                 style={{
                   height: '100vh',
                   listStyle: 'none',
+                  fontSize: '25px',
+                  lineHeight: '29pt',
                 }}
               >
                 {direction.intro}
-                <Grid
-                  container
-                  item
-                  justifyContent='space-evenly'
-                  style={{ listStyle: 'none' }}
-                  xs={12}
-                >
-                  {direction.steps.map((step) => (
-                    <Card
-                      elevation={4}
-                      style={{
-                        minHeight: '20px',
-                        maxWidth: '20vh',
-                        padding: '40px 10px',
-                        margin: '10px 30px',
-                        wrap: 'wrap',
-                      }}
-                      key={step.id}
-                      xs={4}
-                    >
-                      <CardContent>{step.step}</CardContent>
-                    </Card>
-                  ))}
-                </Grid>
+                {direction.steps.map((step) => (
+                  <Grid Item key={step.id}>
+                    {step.step}
+                  </Grid>
+                ))}
               </Grid>
             </Grid>
           </React.Fragment>
         ))}
         <Grid
           item
+          container
           direction='column'
           justifyContent='space-evenly'
-          className={classes.root}
-          style={{ background: 'purple' }}
-          xs={6}
+          style={{
+            background: 'blue',
+            marginTop: '105px',
+            marginBottom: '105px',
+          }}
+          xs={5}
         >
-          <div>Image</div>
+          <Grid
+            item
+            direction='row'
+            style={{
+              marginTop: '105px',
+              marginBottom: '105px',
+            }}
+          >
+            
+          </Grid>
         </Grid>
       </Grid>
     </Grid>
