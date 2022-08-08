@@ -1,7 +1,7 @@
 const covenMembers = [
   {
-    title: 'Coven Members',
-    member: [
+    pageTitle: 'Coven Members',
+    members: [
       {
         id: 1,
         name: 'Christina',
@@ -20,10 +20,11 @@ const covenMembers = [
         id: 3,
         name: 'Vincent',
         title: 'Certified Yogi and practicing Witch',
-        details: 'Service includes: Personalized Yoga and breathing techniques for emotional channeling and healing'
+        details:
+          'Service includes: Personalized Yoga and breathing techniques for emotional channeling and healing',
       },
     ],
-    footer: '....All services are for entertainment purposes only....'
+    footer: '....All services are for entertainment purposes only....',
   },
 ];
 
