@@ -34,7 +34,15 @@ const Coven = () => {
   const classes = useStyles;
 
   return (
-    <Grid container style={{ padding: '20px' }}>
+    <Grid
+      container
+      style={{
+        padding: '20px',
+        background: '#D6D4CD',
+        width: '100%',
+        height: '100%',
+      }}
+    >
       {covenMembers.map((member) => (
         <React.Fragment>
           <Grid
@@ -58,66 +66,71 @@ const Coven = () => {
             container='row'
             style={{
               width: '100%',
-              height: '80%',
               display: 'flex',
               flexWrap: 'nowrap',
               boxSizing: 'border-box',
+              textAlign: '-webkit-center'
             }}
           >
             {member.members.map((mem) => (
               <Grid container='column'>
                 <Container>
-                  <Card
-                    key={mem.id}
-                    spacing={5}
-                    style={{
-                      paddingBottom: '20px',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      flexWrap: 'nowrap',
-                      alignContent: 'stretch',
-                      justifyContent: 'flex-start',
-                      alignItems: 'center',
-                    }}
-                  >
-                    <CardMedia
-                      component='img'
-                      height='140'
-                      style={{ background: 'lightgray', width: '165px' }}
-                    />
-                    <CardContent
+                  <Grid item xs={8}>
+                    <Card
+                      
+                      key={mem.id}
                       style={{
-                        paddingBottom: '20px',
-                        height: '70vh',
                         display: 'flex',
                         flexDirection: 'column',
                         flexWrap: 'nowrap',
                         alignContent: 'stretch',
-                        justifyContent: 'flex-start',
+                        justifyContent: 'center',
                         alignItems: 'center',
-                        paddingLeft: '60px',
-                        paddingRight: '60px',
-                        textAlign: 'center',
+                        background: '#E9E4DE',
+                        paddingTop: '30px',
                       }}
-                      sx={{ p: 4 }}
                     >
-                      <Typography gutterBottom variant='h5' component='div'>
-                        {mem.name}
-                      </Typography>
-                      <Typography gutterBottom variant='h6'>
-                        {mem.title}
-                      </Typography>
-                      <Typography
-                        gutterBottom
-                        gutterLeft
-                        gutterRight
-                        variant='body2'
-                        color='text.secondary'
+                      <CardMedia
+                        component='img'
+                        height='140'
+                        style={{
+                          background: 'lightgray',
+                          width: '165px'
+                        }}
+                      />
+                      <CardContent
+                        style={{
+                          height: '35vh',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          flexWrap: 'nowrap',
+                          alignContent: 'stretch',
+                          justifyContent: 'flex-start',
+                          alignItems: 'center',
+                          paddingLeft: '60px',
+                          paddingRight: '60px',
+                          textAlign: 'center',
+                        }}
+                        sx={{ p: 4 }}
                       >
-                        {mem.details}
-                      </Typography>
-                    </CardContent>
-                  </Card>
+                        <Typography gutterBottom variant='h5' component='div'>
+                          {mem.name}
+                        </Typography>
+                        <Typography gutterBottom variant='h6'>
+                          {mem.title}
+                        </Typography>
+                        <Typography
+                          gutterBottom
+                          gutterLeft
+                          gutterRight
+                          variant='body2'
+                          color='text.secondary'
+                        >
+                          {mem.details}
+                        </Typography>
+                      </CardContent>
+                    </Card>
+                  </Grid>
                 </Container>
               </Grid>
             ))}
@@ -132,6 +145,7 @@ const Coven = () => {
               fontFamily: 'fantasy',
               fontWeight: 'bold',
               flexDirection: 'column',
+              paddingTop: '10px',
             }}
           >
             {member.footer}
