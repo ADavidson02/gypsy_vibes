@@ -9,6 +9,7 @@ import Experience from './components/experiencePage';
 import PricingPage from './components/pricing';
 import Directions from './components/directions';
 import Coven from './components/team';
+import Store from './components/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,6 +21,7 @@ root.render(
       <Route path='/pricing' element={<PricingPage />} />
       <Route path='/directions' element={<Directions />} />
       <Route path='/coven' element={<Coven />} />
+      <Route path='/store' element={<Store />} />
     </Routes>
   </BrowserRouter>
 );
