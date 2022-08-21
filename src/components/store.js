@@ -16,94 +16,113 @@ const useStyles = makeStyles({
     margin: 'auto',
     background: 'purple',
   },
+  container: {
+    display: 'flex',
+    flexFlow: 'column wrap',
+    gap: '0 30px',
+    backgroundColor: 'pink',
+    height: 300, // set the height limit to your liking
+    overflow: 'auto',
+  },
 });
 
 const Store = () => {
   const classes = useStyles;
 
   return (
-    <Container
-      style={{
-        height: '100vh',
-        width: '100%',
-        backgroundColor: 'lightblue',
-      }}
-      maxWidth='false'
-      xl={12}
-    >
-      <Grid
-        xs={12}
-        container
-        style={{
-          height: '100vh',
-        }}
-      >
-        {forSale.map((title) => (
-          <React.Fragment>
-            <Grid
-              item
-              container
-              direction='row'
-              style={{
-                display: 'flex',
-                alignContent: 'center',
-                alignItems: 'center',
-                width: '100%',
-                fontSize: '48px',
-                fontFamily: 'Fantasy',
-                fontWeight: 'bold',
-                paddingTop: '3vh',
-              }}
-            >
-              ...{title.pageTitle}...
-            </Grid>
-            {title.vendors.map((vendor) => (
-              <Grid container='column'>
-                <Container>
+    <Grid xs={12} container style={{}}>
+      {forSale.map((title) => (
+        <React.Fragment>
+          <Grid
+            item
+            container
+            direction='row'
+            style={{
+              display: 'flex',
+              alignContent: 'center',
+              alignItems: 'center',
+
+              fontSize: '48px',
+              fontFamily: 'Fantasy',
+              fontWeight: 'bold',
+              paddingTop: '3vh',
+            }}
+          >
+            ...{title.pageTitle}...
+          </Grid>
+          {title.vendors.map((vendor) => (
+            <Grid container='column'>
+              <Container
+                spacing={10}
+                style={{
+                  display: 'flex',
+                  flexFlow: 'column',
+                  // set the height limit to your liking
+                }}
+                xs={12}
+              >
+                <Grid
+                  item
+                  style={{
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    flexDirection: 'column',
+                    alignContent: 'stretch',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}
+                  xs={12}
+                >
                   Offered by {vendor.name}
-                  <Grid item xs={9}>
-                    {vendor.items.map((item) => (
+                </Grid>
+                <Grid
+                  xs={12}
+                  container
+                  direction='column'
+                  style={{
+                    display: 'flex',
+                    wrap: 'wrap',
+                    flexDirection: 'row',
+                  }}
+                >
+                  {vendor.items.map((item) => (
+                    <Grid
+                      item
+                      xs={6}
+                      sx={{ m: -2 }}
+                      style={{   }}
+                      gutterBottom
+                    >
                       <Card
                         key={item.id}
+                        gutterBottom
                         style={{
                           display: 'flex',
-                          flexDirection: 'column',
-                          flexWrap: 'nowrap',
+                          flexDirection: 'row',
                           alignContent: 'stretch',
-                          justifyContent: 'center',
-                          alignItems: 'center',
-                          //background: '#E9E4DE',
-                          paddingTop: '30px',
+                          paddingTop: '5px',
+                          paddingRight: '10px',
+                          paddingBottom: '5px',
+                          placeContent: 'stretch center',
+                          alignItems: 'flex-start',
+                          justifyContent: 'flex-end',
+                          height: '15vh',
+                          margin: '10px'
                         }}
                       >
-                        <CardMedia
-                          component='img'
-                          height='140'
-                          style={{
-                            background: 'lightgray',
-                            width: '165px',
-                          }}
-                        />
                         <CardContent
                           style={{
-                            height: '35vh',
                             display: 'flex',
-                            flexDirection: 'column',
-                            flexWrap: 'nowrap',
-                            alignContent: 'stretch',
-                            justifyContent: 'flex-start',
-                            alignItems: 'center',
-                            paddingLeft: '60px',
-                            paddingRight: '60px',
-                            textAlign: 'center',
+                            flexFlow: 'column nowrap',
+                            placeContent: 'stretch flex-end',
+                            alignItems: 'end',
+                            textAlign: 'end',
+                            marginBlockStart: '11px',
                           }}
                           sx={{ p: 4 }}
                         >
-                          <Typography gutterBottom variant='h5' component='div'>
-                            {item.product}
-                          </Typography>
-                          <Typography gutterBottom variant='h6'>
-                            {item.price}
+                          <Typography gutterBottom variant='h6' component='div'>
+                            {item.product} - {item.price}
                           </Typography>
                           <Typography
                             gutterBottom
@@ -115,16 +134,26 @@ const Store = () => {
                             {item.description}
                           </Typography>
                         </CardContent>
+                        <CardMedia
+                          component='img'
+                          height='140'
+                          style={{
+                            background: 'lightgray',
+                            width: '80px',
+                            height: '80px',
+                            margin: '11px',
+                          }}
+                        />
                       </Card>
-                    ))}
-                  </Grid>
-                </Container>
-              </Grid>
-            ))}
-          </React.Fragment>
-        ))}
-      </Grid>
-    </Container>
+                    </Grid>
+                  ))}
+                </Grid>
+              </Container>
+            </Grid>
+          ))}
+        </React.Fragment>
+      ))}
+    </Grid>
   );
 };
 
