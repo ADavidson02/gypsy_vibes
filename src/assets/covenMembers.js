@@ -1,6 +1,7 @@
 const covenMembers = [
   {
     pageTitle: 'Coven Members',
+    id: 2,
     members: [
       {
         id: 1,
